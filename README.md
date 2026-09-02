@@ -12,11 +12,33 @@
 
 | System | What it demonstrates | Core engineering stack |
 |---|---|---|
-| **AI-Team** | Multi-agent architecture, declarative agent definitions, validation and lifecycle management | Python · FastAPI · YAML · agent registry · CLI |
+| **[CypCut → OPC UA Gateway](https://github.com/Viktor-Matskevich/cypcut-opcua-gateway)** | Field-driven machine connectivity: vendor-specific laser-controller telemetry → normalized OPC UA for MDC/MES/SCADA | .NET 8 · OPC UA · TCP · protocol analysis · Windows Service |
 | **HiveAngel** | Full edge-to-cloud IoT product: hardware → telemetry → time-series data → SaaS | ESP32-S3 · MQTT · FastAPI · PostgreSQL/TimescaleDB · Next.js · TypeScript |
+| **AI-Team** | Multi-agent architecture, declarative agent definitions, validation and lifecycle management | Python · FastAPI · YAML · agent registry · CLI |
 | **Industrial AI** | Connecting factory equipment, production data and decision systems | CNC/PLC · MDC/MES · OEE · telemetry · analytics |
 
 ➡️ **[Technical systems overview, architecture and implementation details](./SYSTEMS.md)**
+
+---
+
+## CypCut → OPC UA Gateway
+
+A public, independent integration project for translating vendor-specific laser-controller telemetry into a stable OPC UA interface for manufacturing systems.
+
+```text
+Laser Controller → Collector / Protocol Layer → Normalized Data → OPC UA → MDC / MES / SCADA
+```
+
+**Implemented in the public prototype:**
+- configurable HTTP/JSON collector;
+- structured OPC UA address space;
+- multiple machine endpoints;
+- configuration validation and self-tests;
+- Windows Service deployment workflow.
+
+**Field evidence:** a separate clean-room investigation established a live CypCut/PCUI TCP connection on port `20112`, received and decoded binary frames, extracted tag/value data, and validated CRCs. One observed run processed **14,892 frames with 0 CRC errors**. Semantic mapping of physical machine states is still in progress and is not claimed as completed.
+
+This project demonstrates practical machine connectivity: separating observed evidence from assumptions, analyzing an unfamiliar industrial interface, and normalizing trustworthy data for higher-level systems.
 
 ---
 
@@ -68,9 +90,10 @@ Typical engineering problems include heterogeneous equipment connectivity, norma
 
 ## Engineering Domains
 
-`AI Systems` · `Multi-Agent Systems` · `Industrial AI` · `IoT` · `Edge Devices` · `Machine Connectivity` · `Telemetry` · `Data Architecture` · `MDC` · `MES` · `OEE` · `Manufacturing Intelligence`
+`AI Systems` · `Multi-Agent Systems` · `Industrial AI` · `IoT` · `Edge Devices` · `Machine Connectivity` · `OPC UA` · `Industrial Protocols` · `Telemetry` · `Data Architecture` · `MDC` · `MES` · `OEE` · `Manufacturing Intelligence`
 
 **Backend & AI:** Python · FastAPI · APIs · agent architectures · configuration-driven systems  
+**Industrial connectivity:** .NET · OPC UA · TCP/IP · CNC/PLC integration · protocol analysis  
 **Data:** PostgreSQL · TimescaleDB · time-series telemetry · analytical pipelines  
 **Edge & IoT:** ESP32 / ESP32-S3 · MQTT · sensors · device identity  
 **Product:** Next.js · TypeScript · Docker · end-to-end system architecture
@@ -85,4 +108,4 @@ I am most interested in systems that can be validated against the physical world
 
 ---
 
-> **Portfolio note:** some implementation repositories are currently private while credentials, environment-specific deployment details, and reusable public showcase code are being separated. Public technical repositories will expose architecture and representative implementation without publishing production secrets.
+> **Portfolio note:** some implementation repositories are currently private while credentials, environment-specific deployment details, and reusable public showcase code are being separated. Public technical repositories expose architecture and representative implementation without publishing production secrets.
