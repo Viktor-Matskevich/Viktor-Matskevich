@@ -6,7 +6,71 @@ The goal is to show **architecture, implementation depth, and real-world system 
 
 ---
 
-## 1. AI-Team — Multi-Agent AI Platform
+## 1. CypCut → OPC UA Gateway — Industrial Connectivity Case
+
+Public repository: **[cypcut-opcua-gateway](https://github.com/Viktor-Matskevich/cypcut-opcua-gateway)**
+
+This project explores how vendor-specific laser-controller telemetry can be normalized into a stable OPC UA interface for MDC, MES, SCADA, and manufacturing analytics systems.
+
+### Architecture
+
+```mermaid
+flowchart LR
+    L[Laser Controller] --> C[Collector / Protocol Layer]
+    C --> N[Normalized Machine Data]
+    N --> O[OPC UA]
+    O --> M[MDC / MES / SCADA]
+```
+
+### Public prototype
+
+The open implementation currently includes:
+
+- .NET 8 gateway runtime;
+- configurable HTTP/JSON collection path;
+- mapping into a structured OPC UA address space;
+- multiple machine-specific OPC UA endpoints;
+- configuration validation and self-tests;
+- Windows Service deployment workflow.
+
+### Field-validated milestone
+
+A separate clean-room field investigation established a live CypCut/PCUI TCP connection on observed port `20112`.
+
+The field evidence includes:
+
+- binary frame reception and structural decoding;
+- tag ID / value extraction;
+- CRC validation;
+- one observed run with **14,892 frames and 0 CRC errors**;
+- preliminary normalized diagnostic output.
+
+This proves the lower-level transport path and frame integrity. It does **not** yet prove the semantic mapping of machine states such as idle, run, pause, alarm, or cutting; that mapping remains active work.
+
+### Engineering decisions
+
+The repository deliberately distinguishes three things that are easy to conflate in integration work:
+
+1. **what is implemented in the public prototype;**
+2. **what has been observed and validated on a real machine;**
+3. **what remains a hypothesis or next implementation step.**
+
+The public release also excludes client data, private network details, proprietary monitoring-platform integration, legacy binaries, and code derived from closed-source components.
+
+### Why this project matters technically
+
+This is direct proof of industrial connectivity work rather than a generic architecture description. It demonstrates:
+
+- investigation of an unfamiliar industrial interface;
+- TCP/protocol analysis;
+- OPC UA normalization;
+- configurable multi-machine gateway design;
+- field evidence collection;
+- explicit clean-room and public-release boundaries.
+
+---
+
+## 2. AI-Team — Multi-Agent AI Platform
 
 AI-Team is a modular platform for defining and managing specialized AI agents as components of a larger coordinated system.
 
@@ -67,7 +131,7 @@ These items are architectural direction, not claimed as completed implementation
 
 ---
 
-## 2. HiveAngel — Edge-to-Cloud IoT + AI Platform
+## 3. HiveAngel — Edge-to-Cloud IoT + AI Platform
 
 HiveAngel is a real-world IoT platform for remote beehive monitoring. It combines embedded hardware, telemetry transport, backend ingestion, time-series storage, APIs, and a SaaS interface.
 
@@ -167,7 +231,7 @@ It is an example of building a system from the physical world upward rather than
 
 ---
 
-## 3. Industrial AI & Manufacturing Intelligence
+## 4. Industrial AI & Manufacturing Intelligence
 
 My industrial systems work focuses on turning heterogeneous factory equipment into reliable, structured data for operational and analytical use.
 
