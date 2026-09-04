@@ -36,7 +36,7 @@ Laser Controller → Collector / Protocol Layer → Normalized Data → OPC UA �
 - configuration validation and self-tests;
 - Windows Service deployment workflow.
 
-**Field evidence:** a separate clean-room investigation established a live CypCut/PCUI TCP connection on port `20112`, received and decoded binary frames, extracted tag/value data, and validated CRCs. One observed run processed **14,892 frames with 0 CRC errors**. Semantic mapping of physical machine states is still in progress and is not claimed as completed.
+**Field evidence:** separate clean-room field reference builds established a live CypCut/PCUI TCP connection on port `20112`, received and decoded binary frames, extracted tag/value data, and validated CRCs. One observed run processed **14,892 frames with 0 CRC errors**. A later end-to-end field run also verified the broader path from the observed controller transport through a standalone gateway to a live OPC UA endpoint browsed and read in UAExpert, with approximately **78 configured parameter nodes** exposed in the tested build and successful Windows Service deployment. Semantic mapping of physical machine states is still in progress and is not claimed as completed.
 
 This project demonstrates practical machine connectivity: separating observed evidence from assumptions, analyzing an unfamiliar industrial interface, and normalizing trustworthy data for higher-level systems.
 
