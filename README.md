@@ -4,7 +4,7 @@
 
 **Building intelligent systems for the physical world — from machines and sensors to data platforms and AI workflows.**
 
-25+ years in IT · 10+ years in data analytics · industrial automation · manufacturing intelligence · end-to-end product architecture
+ industrial automation · manufacturing intelligence · end-to-end product architecture
 
 ---
 
