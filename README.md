@@ -10,35 +10,41 @@
 
 ## Proof of Work
 
-| System | What it demonstrates | Core engineering stack |
+| Area | What it demonstrates | Core engineering themes |
 |---|---|---|
-| **[CypCut → OPC UA Gateway](https://github.com/Viktor-Matskevich/cypcut-opcua-gateway)** | Field-driven machine connectivity: vendor-specific laser-controller telemetry → normalized OPC UA for MDC/MES/SCADA | .NET 8 · OPC UA · TCP · protocol analysis · Windows Service |
+| **Industrial Machine Connectivity Research** | Field-driven connectivity, telemetry validation, reusable diagnostics and AI-assisted engineering workflows | CNC / PLC · industrial protocols · OPC UA · evidence-driven integration |
 | **HiveAngel** | Full edge-to-cloud IoT product: hardware → telemetry → time-series data → SaaS | ESP32-S3 · MQTT · FastAPI · PostgreSQL/TimescaleDB · Next.js · TypeScript |
 | **AI-Team** | Multi-agent architecture, declarative agent definitions, validation and lifecycle management | Python · FastAPI · YAML · agent registry · CLI |
 | **Industrial AI** | Connecting factory equipment, production data and decision systems | CNC/PLC · MDC/MES · OEE · telemetry · analytics |
 
-➡️ **[Technical systems overview, architecture and implementation details](./SYSTEMS.md)**
+➡️ **[Technical systems overview and selected architecture notes](./SYSTEMS.md)**  
+➡️ **[Industrial Machine Connectivity — sanitized case study](./case-studies/industrial-machine-connectivity/README.md)**
 
 ---
 
-## CypCut → OPC UA Gateway
+## Industrial Machine Connectivity Research
 
-A public, independent integration project for translating vendor-specific laser-controller telemetry into a stable OPC UA interface for manufacturing systems.
+A field-driven investigation into a recurring industrial problem: **how to connect heterogeneous equipment, determine whether acquired telemetry is trustworthy, and turn each successful field investigation into reusable engineering knowledge.**
 
 ```text
-Laser Controller → Collector / Protocol Layer → Normalized Data → OPC UA → MDC / MES / SCADA
+Industrial Equipment
+        ↓
+Network & Service Discovery
+        ↓
+Protocol / Source Identification
+        ↓
+Read-only Acquisition
+        ↓
+Telemetry Validation
+        ↓
+Normalized Observations
+        ↓
+Diagnostics / Evidence / Higher-Level Systems
 ```
 
-**Implemented in the public prototype:**
-- configurable HTTP/JSON collector;
-- structured OPC UA address space;
-- multiple machine endpoints;
-- configuration validation and self-tests;
-- Windows Service deployment workflow.
+The public material intentionally focuses on **methodology, architectural reasoning, validation principles and sanitized lessons learned**. Production code, field configurations, proprietary protocol details, customer information and internal product architecture remain private.
 
-**Field evidence:** separate clean-room field reference builds established a live CypCut/PCUI TCP connection on port `20112`, received and decoded binary frames, extracted tag/value data, and validated CRCs. One observed run processed **14,892 frames with 0 CRC errors**. A later end-to-end field run also verified the broader path from the observed controller transport through a standalone gateway to a live OPC UA endpoint browsed and read in UAExpert, with approximately **78 configured parameter nodes** exposed in the tested build and successful Windows Service deployment. Semantic mapping of physical machine states is still in progress and is not claimed as completed.
-
-This project demonstrates practical machine connectivity: separating observed evidence from assumptions, analyzing an unfamiliar industrial interface, and normalizing trustworthy data for higher-level systems.
+A longer-term question behind the work is whether machine connectivity can move from an engineer-dependent craft toward a **reproducible, machine-readable and eventually AI-assisted engineering workflow**.
 
 ---
 
@@ -65,26 +71,17 @@ An IoT + AI platform for remote beehive monitoring and intelligent decision supp
 Sensors → ESP32-S3 → MQTT → Ingestion API → TimescaleDB → API → SaaS Dashboard → Analytics / AI
 ```
 
-**Implemented engineering:**
-- MQTT-first ESP32 telemetry with HTTP fallback;
-- per-device identity and authentication;
-- device capability and hardware-profile registry;
-- telemetry ingestion and time-series persistence;
-- backend APIs;
-- Next.js / TypeScript SaaS application;
-- authentication, device binding and telemetry UX.
-
-This project demonstrates the ability to build across **embedded hardware, networking, backend, data architecture and product UI** as one system.
+This project demonstrates engineering across embedded hardware, networking, backend services, time-series data and product UI as one end-to-end system.
 
 ---
 
 ## Industrial AI & Manufacturing Intelligence
 
-My core industrial work is focused on connecting **machines → data → operational intelligence**.
+My industrial work focuses on connecting **machines → data → operational intelligence**.
 
 I work with CNCs, PLCs, industrial controllers, machine-data collection, MDC/MES architectures, OEE analytics, telemetry pipelines and AI-ready manufacturing data layers.
 
-Typical engineering problems include heterogeneous equipment connectivity, normalization of machine states and events, production telemetry, alarms, loads, tool/program data, and preparing factory data for analytics and predictive intelligence.
+The emphasis is not only on getting data out of equipment, but on establishing **provenance, completeness, timing, semantic confidence and reproducible diagnostics** before higher-level analytics or AI consume it.
 
 ---
 
@@ -102,10 +99,10 @@ Typical engineering problems include heterogeneous equipment connectivity, norma
 
 ## How I Build
 
-**Problem → Architecture → Working Prototype → Real-World Deployment → Data & Feedback → Iteration**
+**Problem → Architecture → Working Prototype → Real-World Validation → Evidence → Reusable Capability**
 
 I am most interested in systems that can be validated against the physical world, not only demonstrated in a slide deck.
 
 ---
 
-> **Portfolio note:** some implementation repositories are currently private while credentials, environment-specific deployment details, and reusable public showcase code are being separated. Public technical repositories expose architecture and representative implementation without publishing production secrets.
+> **Disclosure note:** some implementation repositories and field systems are intentionally private. Public material exposes engineering reasoning and sanitized proof of work without publishing proprietary implementation details, credentials, customer data or internal product architecture.
