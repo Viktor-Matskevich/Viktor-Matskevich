@@ -72,6 +72,16 @@ For each observation, the system should be able to reason about:
 
 This is particularly important when higher-level analytics or AI systems consume the data. An AI model can reason over incorrect telemetry very confidently, so validation belongs before intelligence.
 
+## Public implementation evidence
+
+The methodology above is backed by a concrete public industrial-connectivity project:
+
+- **[CypCut → OPC UA Gateway](https://github.com/Viktor-Matskevich/cypcut-opcua-gateway)** — .NET 8 / OPC UA gateway work with a public HTTP/JSON → OPC UA prototype and sanitized field-validation evidence from a real CypCut/PCUI connectivity investigation.
+
+The repository deliberately distinguishes what is reproducible in public code from what was validated in the field. Observed TCP/20112 frame reception, tag extraction and CRC validation are documented as field evidence; a complete public clean-room implementation of that proprietary transport is not claimed.
+
+This separation is intentional: implementation evidence should be inspectable, while production configuration, proprietary details and unverified semantics remain private.
+
 ## Field correlation
 
 One research direction is synchronized evidence capture: recording machine telemetry while separately capturing observable machine or HMI behavior.
