@@ -20,14 +20,6 @@
 ➡️ **[Technical systems overview and selected architecture notes](./SYSTEMS.md)**  
 ➡️ **[Industrial Machine Connectivity — sanitized case study](./case-studies/industrial-machine-connectivity/README.md)**
 
-### Current build — Industrial Edge Foundation
-
-A new ESP32-S3 industrial edge track is currently in **pre-field-validation**. The work focuses on safe hardware identification, capability-driven firmware architecture, Edge ↔ Connectivity boundaries and a repeatable bring-up process before real I/O validation.
-
-`UNKNOWN → IDENTIFY → VERIFY → AUTHORIZE POWER → CONNECT → PROBE → CONFIGURE → VALIDATE`
-
-➡️ **[Industrial Edge Foundation — current engineering case](./case-studies/industrial-edge-foundation/README.md)**
-
 ---
 
 ## Industrial Machine Connectivity Research
