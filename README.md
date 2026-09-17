@@ -13,12 +13,14 @@ industrial IT · product architecture · machine connectivity · manufacturing i
 | Area | What it demonstrates | Core engineering themes |
 |---|---|---|
 | **Industrial Machine Connectivity Research** | Field-driven connectivity, telemetry validation, reusable diagnostics and AI-assisted engineering workflows | CNC / PLC · industrial protocols · OPC UA · evidence-driven integration |
+| **Engineering Knowledge Experiment** | Turning accumulated engineering material into reusable patterns with explicit evidence, gaps and confidence | knowledge engineering · provenance · AI-assisted retrieval · validation |
 | **HiveAngel** | Full edge-to-cloud IoT product: hardware → telemetry → time-series data → SaaS | ESP32-S3 · MQTT · FastAPI · PostgreSQL/TimescaleDB · Next.js · TypeScript |
 | **AI-Team** | Multi-agent architecture, declarative agent definitions, validation and lifecycle management | Python · FastAPI · YAML · agent registry · CLI |
 | **Industrial IT & Manufacturing Intelligence** | Connecting factory equipment, production data and decision systems | CNC/PLC · MDC/MES · OEE · telemetry · analytics |
 
 ➡️ **[Technical systems overview and selected architecture notes](./SYSTEMS.md)**  
-➡️ **[Industrial Machine Connectivity — sanitized case study](./case-studies/industrial-machine-connectivity/README.md)**
+➡️ **[Industrial Machine Connectivity — sanitized case study](./case-studies/industrial-machine-connectivity/README.md)**  
+➡️ **[Engineering Knowledge Experiment — sanitized proof of work](./case-studies/engineering-knowledge-experiment/README.md)**
 
 ---
 
@@ -45,6 +47,14 @@ Diagnostics / Evidence / Higher-Level Systems
 The public material intentionally focuses on **methodology, architectural reasoning, validation principles and sanitized lessons learned**. Production code, field configurations, proprietary protocol details, customer information and internal product architecture remain private.
 
 A longer-term question behind the work is whether machine connectivity can move from an engineer-dependent craft toward a **reproducible, machine-readable and eventually AI-assisted engineering workflow**.
+
+---
+
+## Engineering Knowledge & AI-Assisted Workflows
+
+A current engineering experiment explores how accumulated source code, documentation, architectures, notes and field evidence can be converted into reusable problem-solving knowledge rather than remaining a passive archive.
+
+The public example demonstrates the output discipline — **known approaches → implementation patterns → trade-offs → evidence → gaps**, with conclusions classified by confidence instead of treating AI-generated synthesis as fact. The underlying corpus, indexing/retrieval implementation, internal taxonomy, prompts and proprietary material remain private.
 
 ---
 
@@ -89,7 +99,7 @@ AI is used as an engineering accelerator where it adds decision value: diagnosti
 
 ## Engineering Domains
 
-`Industrial IT` · `Product Architecture` · `Machine Connectivity` · `Industrial AI` · `IoT` · `Edge Devices` · `OPC UA` · `Industrial Protocols` · `Telemetry` · `Data Architecture` · `MDC` · `MES` · `OEE` · `Manufacturing Intelligence` · `AI-Assisted Engineering`
+`Industrial IT` · `Product Architecture` · `Machine Connectivity` · `Knowledge Engineering` · `Industrial AI` · `IoT` · `Edge Devices` · `OPC UA` · `Industrial Protocols` · `Telemetry` · `Data Architecture` · `MDC` · `MES` · `OEE` · `Manufacturing Intelligence` · `AI-Assisted Engineering`
 
 **Backend & AI:** Python · FastAPI · APIs · agent architectures · configuration-driven systems  
 **Industrial connectivity:** .NET · OPC UA · TCP/IP · CNC/PLC integration · protocol analysis  
